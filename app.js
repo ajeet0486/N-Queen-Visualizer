@@ -5,7 +5,8 @@ const progressBar = document.getElementById("progress-bar")
 const playButton = document.getElementById('play-button');
 const pauseButton = document.getElementById("pause-button");
 
-const queen = '<i class="fas fa-chess-queen" style="color:#000"></i>';
+const queen = '<img src="./queen.png" alt="Queen" style="width:24px; height:24px;">';
+
 
 let n, speed, tempSpeed, q, Board = 0;
 // Board = 0;
