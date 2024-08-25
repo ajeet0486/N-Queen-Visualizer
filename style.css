@@ -84,7 +84,6 @@ div.n-queen {
   position: absolute;
   top: -10px;
   font-size: 14px;
-  font-weight: 500;
 }
 
 .slider::before {
@@ -93,7 +92,6 @@ div.n-queen {
   top: -10px;
   right: 0px;
   font-size: 14px;
-  font-weight: 500;
 }
 
 #progress-bar {
