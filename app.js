@@ -8,23 +8,11 @@ const pauseButton = document.getElementById("pause-button");
 const queen = '<img src="./queen.png" alt="Queen" style="width:24px; height:24px;">';
 
 
-let n, speed, tempSpeed, q, Board = 0;
+let n, speed=310, tempSpeed, q, Board = 0;
 
-// Creating array for all the possible arrangements of the N-Queen
 let array = [0, 2, 1, 1, 3, 11, 5, 41, 93];
 
-// Used to store the state of the boards;
 let pos = {};
-
-
-// Setting the slider value onSlide
-speed = (100 - slider.value) * 10;
-tempSpeed = speed;
-slider.oninput = function () {
-    progressBar.style.width = this.value + "%";
-    speed = slider.value;
-    speed = (100 - speed) * 10;
-}
 
 class Queen {
     constructor() {
@@ -42,7 +30,6 @@ class Queen {
     }
 
     isValid = async (board, r, col, n) => {
-        //Setting the current box color to orange
         const table = document.getElementById(`table-${this.uuid[board]}`);
         const currentRow = table.firstChild.childNodes[r];
         const currentColumn = currentRow.getElementsByTagName("td")[col];
@@ -57,8 +44,8 @@ class Queen {
             const value = column.innerHTML;
 
             if (value == queen) {
-                column.style.backgroundColor = "#FB5607";
-                currentColumn.innerHTML = "-"
+                column.style.backgroundColor = "#f3ac8b";
+                currentColumn.innerHTML = ""
                 return false;
             }
             column.style.backgroundColor = "green";
@@ -72,8 +59,8 @@ class Queen {
             const value = column.innerHTML;
 
             if (value == queen) {
-                column.style.backgroundColor = "#fb5607";
-                currentColumn.innerHTML = "-"
+                column.style.backgroundColor = "#f3ac8b";
+                currentColumn.innerHTML = ""
                 return false;
             }
             column.style.backgroundColor = "green";
@@ -88,8 +75,8 @@ class Queen {
             const value = column.innerHTML;
 
             if (value == queen) {
-                column.style.backgroundColor = "#FB5607";
-                currentColumn.innerHTML = "-"
+                column.style.backgroundColor = "#f3ac8b";
+                currentColumn.innerHTML = ""
                 return false;
             }
             column.style.backgroundColor = "green";
@@ -144,7 +131,7 @@ class Queen {
                 board = Board;
                 table = document.getElementById(`table-${this.uuid[board]}`);
                 row = table.firstChild.childNodes[r];
-                row.getElementsByTagName("td")[i].innerHTML = "-";
+                row.getElementsByTagName("td")[i].innerHTML = "";
 
                 delete this.position[`${board}`][`${r}`];
             }
@@ -209,7 +196,7 @@ playButton.onclick = async function visualise() {
                 (i + j) & 1
                     ? (col.style.backgroundColor = "green")
                     : (col.style.backgroundColor = "white");
-                col.innerHTML = "-";
+                col.innerHTML = "";
                 col.style.border = "0.3px solid #373f51";
             }
         }
